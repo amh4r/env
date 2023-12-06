@@ -1,0 +1,29 @@
+[alias]
+	br = branch
+	ci = commit
+	co = checkout
+
+	# Use fzf to stage files for commit
+	fza = "!git ls-files -m -o --exclude-standard | fzf -m --print0 | xargs -0 git add"
+
+	# Use fzf to unstage files for commit
+	fzr = "!git diff --name-only --cached | cat | fzf -m --print0 | xargs -0 git reset"
+
+	# Interactive checkout. Requires fzf (https://github.com/junegunn/fzf)
+	# Example: `git ibco`
+	ibco = !git for-each-ref refs/heads --format='%(refname:short)' --sort=-committerdate | fzf | xargs git checkout
+
+	lg1 = log --decorate=short --oneline --graph --all
+	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+	lg3 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+	lg = !git lg2
+	st = status
+	sw = switch
+
+[pager]
+# Don't use the less-like view for `git branch`
+branch = false
+
+[user]
+	name = Aaron Harper
+	email = aaron@inngest.com

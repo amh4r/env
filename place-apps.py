@@ -87,19 +87,25 @@ def create_osascript(app: App) -> str:
     size = screen_to_size[app.screen]
 
     return f"""
-        tell application "System Events" to tell process "{app.name}"
-            repeat with i from 1 to count of windows
-                tell window i
-                    set position to {{{position.x}, {position.y}}}
-                    set size to {{{size.width}, {size.height}}}
-                end tell
-            end repeat
-        end tell
+        on is_running(appName)
+            tell application "System Events" to (name of processes) contains appName
+        end is_running
+
+        if is_running("{app.name}") then
+            tell application "System Events" to tell process "{app.name}"
+                repeat with i from 1 to count of windows
+                    tell window i
+                        set position to {{{position.x}, {position.y}}}
+                        set size to {{{size.width}, {size.height}}}
+                    end tell
+                end repeat
+            end tell
+        end if
     """
 
 
-def run_osascript(script: str) -> subprocess.CompletedProcess[bytes]:
-    return subprocess.run(["osascript", "-e", script])
+def run_osascript(script: str) -> subprocess.CompletedProcess[bytes] | None:
+    return subprocess.run(["osascript", "-e", script], timeout=1)
 
 
 def main() -> None:
