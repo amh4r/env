@@ -87,11 +87,7 @@ def create_osascript(app: App) -> str:
     size = screen_to_size[app.screen]
 
     return f"""
-        on is_running(appName)
-            tell application "System Events" to (name of processes) contains appName
-        end is_running
-
-        if is_running("{app.name}") then
+        if application "{app.name}" is running then
             tell application "System Events" to tell process "{app.name}"
                 repeat with i from 1 to count of windows
                     tell window i
