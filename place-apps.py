@@ -69,6 +69,7 @@ class App:
 
 
 apps = [
+    App(name="Alacritty", screen="bottom"),
     App(name="Calendar", screen="left.bottom"),
     App(name="Chrome", screen="bottom"),
     App(name="Code", screen="top"),

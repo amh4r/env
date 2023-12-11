@@ -138,14 +138,7 @@ alias gcp=gcloud
 
 
 ###############
-# Kubernetes
-
-alias k=kubectl
-
-
-
-###############
-# Node
+# JavaScript
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 
@@ -154,6 +147,23 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 
 # Load nvm bash completion
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+export DENO_INSTALL="/Users/aharper/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+
+# bun completions
+[ -s "/Users/aharper/.bun/_bun" ] && source "/Users/aharper/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+
+
+###############
+# Kubernetes
+
+alias k=kubectl
 
 
 
