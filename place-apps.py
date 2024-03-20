@@ -102,7 +102,7 @@ def create_osascript(app: App) -> str:
 
 
 def run_osascript(script: str) -> subprocess.CompletedProcess[bytes] | None:
-    return subprocess.run(["osascript", "-e", script], timeout=1)
+    return subprocess.run(["osascript", "-e", script], timeout=2)
 
 
 def main() -> None:
