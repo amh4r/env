@@ -69,7 +69,7 @@ pathmunge() {
 
 # Place windows correctly.
 place-apps () {
-	~/personal/env/place-apps.py
+	~/personal/env/scripts/place-apps.py
 }
 
 # Place displays correctly. Requires https://github.com/jakehilborn/displayplacer
