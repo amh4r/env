@@ -91,10 +91,7 @@ place-displays () {
 }
 
 sync-obsidian () {
-	cd  ~/personal/notes
-	git add .
-	git commit -m "Sync"
-	git push
+	(cd  ~/personal/notes && git add . && git commit -m "Sync" && git push)
 }
 
 
@@ -134,6 +131,13 @@ pathmunge $HOME/go/bin
 # Google Cloud
 
 alias gcp=gcloud
+
+
+
+###############
+# Homebrew
+
+HOMEBREW_NO_AUTO_UPDATE=1
 
 
 
@@ -231,6 +235,9 @@ zstyle ':urlglobber' url-other-schema
 # Default editor
 export EDITOR="vim"
 
+# Use the real time binary instead of Mac's built-in one
+alias time=/usr/bin/time
+
 # Make watch expand aliases
 alias watch='watch '
 
@@ -240,3 +247,8 @@ if [ -f '/Users/aharper/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Use
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/aharper/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/aharper/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+. "/Users/aharper/.deno/env"
+# Initialize zsh completions (added by deno install script)
+autoload -Uz compinit
+compinit
+. "$HOME/.local/bin/env"

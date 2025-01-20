@@ -24,7 +24,12 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.wordWrap": "bounded",
+    "editor.wordWrapColumn": 120
+  },
+  "[mdx]": {
+    "editor.wordWrap": "bounded",
+    "editor.wordWrapColumn": 120
   },
   "[python]": {
     "editor.formatOnType": true,
@@ -60,16 +65,31 @@
     "*.hcl": "terraform",
     "env": "shellscript"
   },
+  "git.autorefresh": true,
+  "git.openRepositoryInParentFolders": "never",
   "github.copilot.enable": {
-    "*": true,
-    "plaintext": false,
-    "markdown": false,
+    "*": false,
+    "plaintext": true,
+    "markdown": true,
     "scminput": false,
-    "yaml": false
+    "go": true,
+    "graphql": true,
+    "javascript": true,
+    "mdx": true,
+    "python": true,
+    "typescript": true,
+    "typescriptreact": true,
+    "yaml": true,
+    "sql": true
+  },
+  "github.copilot.editor.enableAutoCompletions": true,
+  "[go]": {
+    "editor.formatOnSave": true
   },
   "gitlens.plusFeatures.enabled": false,
   "gitlens.showWelcomeOnInstall": false,
   "gitlens.telemetry.enabled": false,
+  "makefile.configureOnOpen": false,
   "python.analysis.typeCheckingMode": "basic",
   "redhat.telemetry.enabled": false,
   "search.exclude": {
@@ -78,5 +98,8 @@
   "window.zoomLevel": 1,
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.panel.defaultLocation": "right",
-  "workbench.startupEditor": "none"
+  "workbench.startupEditor": "none",
+  "zig.initialSetupDone": true,
+  "zig.path": "zig",
+  "zig.zls.path": "/Users/aharper/Library/Application Support/Code/User/globalStorage/ziglang.vscode-zig/zls_install/zls"
 }
