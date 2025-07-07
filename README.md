@@ -41,6 +41,7 @@ ln -s ~/personal/env/tmux/.tmux.conf ~/.tmux.conf
 ln -s ~/personal/env/vim/.vimrc ~/.vimrc
 ln -s ~/personal/env/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
 ln -s ~/personal/env/zsh/.zshrc ~/.zshrc
+ln -s ~/personal/env/zsh/aaronharper.zsh-theme ~/.oh-my-zsh/custom/themes/aaronharper.zsh-theme
 ```
 
 ## VS Code
