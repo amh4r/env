@@ -40,13 +40,29 @@ IS_OH_MY_ZSH_SOURCED=1
 alertdone() {
 	local PREV_STATUS=$?
 
+	# If the user passes -q, don't say anything.
+	local QUIET=0
+	while getopts "q" opt; do
+		case $opt in
+			q) QUIET=1 ;;
+		esac
+	done
+
 	if [ $PREV_STATUS -eq 0 ]
 	then
 		osascript -e 'display notification "✅" with title "Done"'
-		say done
+
+		if [ $QUIET -eq 0 ]
+		then
+			say done
+		fi
 	else
 		osascript -e 'display notification "❌" with title "Failed"'
-		say failed
+
+		if [ $QUIET -eq 0 ]
+		then
+			say failed
+		fi
 	fi
 }
 
@@ -174,8 +190,22 @@ alias k=kubectl
 ###############
 # Python
 
+alias psql=/opt/homebrew/opt/libpq/bin/psql
+
+
+
+###############
+# Python
+
 alias py=python
 eval "$(pyenv init -)"
+
+
+
+###############
+# Tailscale
+
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 
 
 
@@ -198,6 +228,8 @@ alias tsa="tmux ls | cut -d: -f1 | fzf | xargs tmux switch -t"
 
 # Allow key repeat (holding down a key).
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+
+alias c="cursor ."
 
 
 
@@ -252,3 +284,8 @@ if [ -f '/Users/aharper/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then .
 autoload -Uz compinit
 compinit
 . "$HOME/.local/bin/env"
+
+
+pathmunge ~/bin
+
+alias claude="/Users/aharper/.claude/local/claude"

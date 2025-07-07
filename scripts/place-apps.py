@@ -24,18 +24,18 @@ class BottomScreen:
 
 
 class LeftScreen:
-    bottom_position = Coordinates(x=-1898, y=-468)
+    bottom_position = Coordinates(x=-1850, y=78)
     half_size = Size(height=948, width=1080)
 
 
 class RightScreen:
-    bottom_position = Coordinates(x=2622, y=-468)
+    bottom_position = Coordinates(x=2670, y=78)
     half_size = Size(height=948, width=1080)
-    top_position = Coordinates(x=2622, y=-1415)
+    top_position = Coordinates(x=2670, y=-1415)
 
 
 class TopScreen:
-    position = Coordinates(x=-818, y=-1415)
+    position = Coordinates(x=-770, y=-1415)
     size = Size(height=1440, width=3440)
 
 
