@@ -6,6 +6,7 @@ set backspace=indent,eol,start
 set cursorcolumn
 set cursorline
 set expandtab
+set noautochdir
 set number
 set shiftwidth=4
 set smartindent

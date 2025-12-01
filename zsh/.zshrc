@@ -40,10 +40,10 @@ alertdone() {
 	local PREV_STATUS=$?
 
 	# If the user passes -q, don't say anything.
-	local QUIET=0
-	while getopts "q" opt; do
+	local SPEAK=0
+	while getopts "s" opt; do
 		case $opt in
-			q) QUIET=1 ;;
+			s) SPEAK=1 ;;
 		esac
 	done
 
@@ -51,14 +51,14 @@ alertdone() {
 	then
 		osascript -e 'display notification "✅" with title "Done"'
 
-		if [ $QUIET -eq 0 ]
+		if [ $SPEAK -eq 1 ]
 		then
 			say done
 		fi
 	else
 		osascript -e 'display notification "❌" with title "Failed"'
 
-		if [ $QUIET -eq 0 ]
+		if [ $SPEAK -eq 1 ]
 		then
 			say failed
 		fi
@@ -120,6 +120,12 @@ printf "\e[?1042l"
 
 
 ###############
+# AI
+alias claude="/Users/aharper/.claude/local/claude"
+
+
+
+###############
 # Docker
 
 alias dk=docker
@@ -177,6 +183,13 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+# pnpm
+export PNPM_HOME="/Users/aharper/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
 
 
 ###############
@@ -187,14 +200,18 @@ alias k=kubectl
 
 
 ###############
-# Python
+# Nix
 
-alias psql=/opt/homebrew/opt/libpq/bin/psql
-
+# Uncomment the following 3 lines to enable:
+#. /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+#direnvPath=$(which direnv)
+#eval "$(${direnvPath} hook zsh)"
 
 
 ###############
 # Python
+
+alias psql=/opt/homebrew/opt/libpq/bin/psql
 
 alias py=python
 eval "$(pyenv init -)"
@@ -286,5 +303,3 @@ compinit
 
 
 pathmunge ~/bin
-
-alias claude="/Users/aharper/.claude/local/claude"
