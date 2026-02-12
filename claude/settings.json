@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/osascript -e 'display notification \"👋\" with title \"Claude\"'"
+          }
+        ]
+      }
+    ]
+  }
+}
