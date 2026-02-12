@@ -8,6 +8,10 @@
 
 My preferences MUST only apply to new code. Do not change existing code to conform to my preferences.
 
+## Comments
+
+MUST be succinct. Engineers frequently lose focus when readingn long comments, so keep them short and informative.
+
 ## Go
 
 MUST use `any` instead of `interface{}`.
