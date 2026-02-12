@@ -91,6 +91,7 @@
   "gitlens.telemetry.enabled": false,
   "makefile.configureOnOpen": false,
   "python.analysis.typeCheckingMode": "basic",
+  "python.defaultInterpreterPath": "/usr/bin/python3",
   "redhat.telemetry.enabled": false,
   "search.exclude": {
     // "**/vendor": true

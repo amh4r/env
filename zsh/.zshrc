@@ -53,14 +53,16 @@ alertdone() {
 
 		if [ $SPEAK -eq 1 ]
 		then
-			say done
+			# Need to redirect to /dev/null to hide "'Dock' is running" stderr.
+			# This only happens within tmux
+			say done 2>/dev/null
 		fi
 	else
 		osascript -e 'display notification "❌" with title "Failed"'
 
 		if [ $SPEAK -eq 1 ]
 		then
-			say failed
+			say failed 2>/dev/null
 		fi
 	fi
 }
@@ -121,7 +123,6 @@ printf "\e[?1042l"
 
 ###############
 # AI
-alias claude="/Users/aharper/.claude/local/claude"
 
 
 
