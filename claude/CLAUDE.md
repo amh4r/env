@@ -55,6 +55,17 @@ if (typeof foo === "string") { stuff(foo) }
 
 SHOULD avoid using `any`.
 
+## YAML
+
+All string values MUST be quoted.
+```yaml
+# bad
+key: value
+
+# good
+key: "value"
+```
+
 ## Comments
 
 MUST be succinct. Engineers frequently lose focus when reading long comments, so keep them short and informative.

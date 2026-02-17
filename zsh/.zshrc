@@ -198,6 +198,9 @@ esac
 
 alias k=kubectl
 
+# https://krew.sigs.k8s.io/docs/user-guide/setup/install
+pathmunge "${KREW_ROOT:-$HOME/.krew}/bin"
+
 
 
 ###############

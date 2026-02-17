@@ -1,0 +1,17 @@
+return {
+  {
+    "sindrets/diffview.nvim",
+    cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewFileHistory" },
+    keys = {
+      { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "Diff against HEAD" },
+      { "<leader>gD", "<cmd>DiffviewClose<cr>", desc = "Close Diffview" },
+      { "<leader>gh", "<cmd>DiffviewFileHistory %<cr>", desc = "File history (current)" },
+      { "<leader>gH", "<cmd>DiffviewFileHistory<cr>", desc = "File history (branch)" },
+    },
+    opts = {
+      view = {
+        default = { layout = "diff2_horizontal" },
+      },
+    },
+  },
+}
