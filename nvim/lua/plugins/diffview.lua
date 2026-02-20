@@ -12,6 +12,15 @@ return {
       view = {
         default = { layout = "diff2_horizontal" },
       },
+      keymaps = {
+        -- Use <leader>e to toggle the file tree (same as the explorer).
+        view = {
+          { "n", "<leader>e", function() require("diffview.actions").toggle_files() end, { desc = "Toggle file tree" } },
+        },
+        file_panel = {
+          { "n", "<leader>e", function() require("diffview.actions").toggle_files() end, { desc = "Toggle file tree" } },
+        },
+      },
     },
   },
 }
