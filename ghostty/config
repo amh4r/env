@@ -1,0 +1,26 @@
+# Allow apps to read/write system clipboard via OSC 52
+clipboard-read = allow
+clipboard-write = allow
+
+theme = 0x96f
+
+window-padding-balance = true
+window-padding-x = 0
+window-padding-y = 0
+
+# Use Option as Alt for keybinds
+macos-option-as-alt = true
+
+# Alt+N to switch tmux windows
+keybind = alt+one=esc:1
+keybind = alt+two=esc:2
+keybind = alt+three=esc:3
+keybind = alt+four=esc:4
+keybind = alt+five=esc:5
+keybind = alt+six=esc:6
+keybind = alt+seven=esc:7
+keybind = alt+eight=esc:8
+keybind = alt+nine=esc:9
+
+# Cmd+C sends Alt+c so nvim can map it to "+y (same esc: format as Alt+N bindings)
+keybind = super+c=esc:c

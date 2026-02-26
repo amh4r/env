@@ -8,3 +8,7 @@ vim.keymap.set("n", "<localleader>y", function()
   vim.fn.setreg("+", path)
   vim.notify("Copied: " .. path)
 end, { desc = "Copy relative path" })
+
+-- Cmd+C: yank visual selection to system clipboard.
+-- Ghostty sends esc:c (Alt+c) for super+c, which nvim sees as <M-c>.
+vim.keymap.set("v", "<M-c>", '"+y', { noremap = true, silent = true })
