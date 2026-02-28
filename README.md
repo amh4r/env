@@ -35,8 +35,11 @@
 
 ```
 ln -s ~/personal/env/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
-ln -s ~/personal/env/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
+ln -s ~/personal/env/claude/commands ~/.claude/commands
+ln -s ~/personal/env/ghostty/config ~/.config/ghostty/config
 ln -s ~/personal/env/git/.gitconfig ~/.gitconfig
+ln -s ~/personal/env/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
+ln -s ~/personal/env/nvim ~/.config/nvim
 ln -s ~/personal/env/tmux/.tmux.conf ~/.tmux.conf
 ln -s ~/personal/env/vim/.vimrc ~/.vimrc
 ln -s ~/personal/env/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
