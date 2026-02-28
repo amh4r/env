@@ -1,4 +1,4 @@
-Thoroughly review the changes in this PR. To do so, launch sub agents, where each does 1 of the following tasks:
+Thoroughly review the changes in this PR. To do so, perform each of the following tasks in a separate agent:
   - Find user-facing breaking changes
   - Ensure code is readable and maintainable
   - Find bugs
