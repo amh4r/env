@@ -8,6 +8,9 @@ vim.filetype.add({
   },
 })
 
+-- Disable LSP inlay hints by default
+vim.g.lazyvim_inlay_hints = false
+
 -- Keep default register separate from system clipboard.
 -- Use "+y / "+p to explicitly access the system clipboard.
 vim.opt.clipboard = ""
