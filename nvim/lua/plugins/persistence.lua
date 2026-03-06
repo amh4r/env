@@ -12,13 +12,21 @@ return {
           -- will be restored
           require("persistence").load()
           vim.schedule(function()
-            -- Close any directory buffers left over in the session. This
-            -- prevents directory buffers from appearing when restoring a
-            -- session, even though they weren't open when the session was
-            -- saved
+            -- Close unwanted buffers left over after session restore
             for _, buf in ipairs(vim.api.nvim_list_bufs()) do
               local name = vim.api.nvim_buf_get_name(buf)
+
+              -- Directory buffers that sneak into the session
               if name ~= "" and vim.fn.isdirectory(name) == 1 then
+                vim.api.nvim_buf_delete(buf, { force = true })
+
+              -- Empty "[No Name]"" buffer left over from before session restore
+              elseif
+                name == ""
+                and vim.bo[buf].buflisted
+                and vim.api.nvim_buf_line_count(buf) <= 1
+                and vim.api.nvim_buf_get_lines(buf, 0, 1, false)[1] == ""
+              then
                 vim.api.nvim_buf_delete(buf, { force = true })
               end
             end

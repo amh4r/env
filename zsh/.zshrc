@@ -307,3 +307,6 @@ compinit
 
 
 pathmunge ~/bin
+
+# opencode
+export PATH=/Users/aharper/.opencode/bin:$PATH

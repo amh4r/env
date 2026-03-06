@@ -8,6 +8,9 @@ vim.filetype.add({
   },
 })
 
+-- Prefer .git root over LSP root for project detection
+vim.g.root_spec = { { ".git", "lua" }, "lsp", "cwd" }
+
 -- Disable LSP inlay hints by default
 vim.g.lazyvim_inlay_hints = false
 
