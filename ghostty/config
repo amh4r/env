@@ -24,3 +24,4 @@ keybind = alt+nine=esc:9
 
 # Cmd+C sends Alt+c so nvim can map it to "+y (same esc: format as Alt+N bindings)
 keybind = super+c=esc:c
+
