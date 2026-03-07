@@ -36,6 +36,8 @@
 ```
 ln -s ~/personal/env/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 ln -s ~/personal/env/claude/commands ~/.claude/commands
+ln -s ~/personal/env/claude/keybindings.json ~/.claude/keybindings.json
+ln -s ~/personal/env/claude/settings.json ~/.claude/settings.json
 ln -s ~/personal/env/ghostty/config ~/.config/ghostty/config
 ln -s ~/personal/env/git/.gitconfig ~/.gitconfig
 ln -s ~/personal/env/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
