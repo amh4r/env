@@ -123,6 +123,8 @@ Inside lazygit:
 
 # Vim Basics
 
+`<C-o>` -- Jump back
+`<C-i>` -- Jump forward
 `M` -- Center of screen
 `u` -- Undo
 `<C-r>` -- Redo
