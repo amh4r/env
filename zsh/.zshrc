@@ -124,6 +124,11 @@ printf "\e[?1042l"
 ###############
 # AI
 
+# Do not set SSH_AUTH_SOCK for Claude Code. This fixes an issue where Claude
+# Code would trigger a YubiKey prompt immediately after asking the first
+# question of a session.
+alias claude="SSH_AUTH_SOCK= claude"
+
 
 
 ###############
