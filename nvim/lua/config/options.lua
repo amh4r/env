@@ -9,7 +9,7 @@ vim.filetype.add({
 })
 
 -- Prefer .git root over LSP root for project detection
-vim.g.root_spec = { { ".git", "lua" }, "lsp", "cwd" }
+vim.g.root_spec = { ".git", "lsp", "cwd" }
 
 -- Keep default register separate from system clipboard.
 -- Use "+y / "+p to explicitly access the system clipboard.

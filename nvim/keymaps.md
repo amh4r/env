@@ -1,7 +1,7 @@
 # Find/Search
 
+`<leader><space>` -- Find files
 `<leader>ff` -- Find files
-`<leader>fF` -- Find files (relative to project root)
 `<leader>sg` -- Grep. Can glob search (e.g. `myFunction -- -g *.ts`)
 `<leader>sk` -- Search keymaps
 
