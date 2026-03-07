@@ -8,33 +8,43 @@
 Within snacks:
 `<a-h>` -- Toggle hidden file visibility
 
-# Goto
+# LSP
 
 `gd` -- Definition
-`gr` -- References
-`gt` -- Next tab page
 `gI` -- Go to implementation
 `gD` -- Go to source definition
 `gy` -- Go to type definition
 `gr` -- Find references
 `K` -- Hover documentation
 
-# Marks
+## Diagnostics
 
-bookmarks.nvim
+`]d` -- Next
+`[d` -- Previous
+`]e` -- Next error
+`[e` -- Previous error
+
+## Code Actions
+
+`<leader>cr` -- Rename (changes all occurrences)
+
+# Marks (bookmarks.nvim)
+
 `mm` -- Toggle
 `mo` -- Picker
-`['` -- Next
-`]'` -- Previous
-`]b` -- Next (within buffer)
-`[b` -- Previous (within buffer)
+`]'` -- Next
+`['` -- Previous
 
 # File tree
 
+`<leader>e` -- Toggle
 `a` -- Create file in focused dir
 `d` -- Delete file
+`H` -- Toggle hidden file visibility
 
-# Tabs
+# Layout
+
+## Buffers
 
 `<S-h>` -- Move left
 `<S-l>` -- Move right
@@ -42,17 +52,18 @@ bookmarks.nvim
 `<leader>bd` -- Close
 `<leader>bo` -- Close others
 `<leader>bl` -- Close to the left
-`<leader>bh` -- Close to the right
+`<leader>br` -- Close to the right
 `<leader>bP` -- Close non-pinned
 
 `<leader>bp` -- Pin
 
-# Tab pages
+## Tab pages
 
+`gt` -- Next tab page
 `<leader><tab><tab>` -- New
 `<leader><tab>d` -- Close
 
-# Windows
+## Windows
 
 `<C-h>` -- Move left
 `<C-l>` -- Move right
@@ -83,13 +94,15 @@ bookmarks.nvim
 
 `]x` -- Next conflict
 `[x` -- Prev conflict
-`<leader>cO -- Choose ours
+`<leader>cO` -- Choose ours
 `<leader>ct` -- Choose theirs
 
 ## Lazygit
 
 `<leader>gs` -- Git status
 `<leader>gg` -- Open lazygit
+
+Inside lazygit:
 
 `space` -- Stage file
 `f` -- Fetch
@@ -103,18 +116,16 @@ bookmarks.nvim
 `<leader>uh` -- Toggle inlay hints
 `<leader>um` -- Toggle minimap
 
-# Diagnostics
+# Editing
 
-`]d` -- Next
-`[d` -- Previous
-`]e` -- Next error
-`[e` -- Previous error
+`gc` -- Toggle comment (selection)
+`gcc` -- Toggle comment (line)
 
-# Cursor
+# Vim Basics
 
 `M` -- Center of screen
-
-# Scroll
+`u` -- Undo
+`<C-r>` -- Redo
 
 `<C-b>` -- Up page
 `<C-f>` -- Down page
@@ -124,18 +135,6 @@ bookmarks.nvim
 `zb` -- Up (cursor to bottom)
 `zz` -- Center cursor
 `zt` -- Down (cursor to top)
-
-# Editing
-
-`<leader>cr` -- Rename (changes all occurrences)
-`gc` -- Toggle comment (selection)
-`gcc` -- Toggle comment (line)
-`u` -- Undo
-`<C-r>` -- Redo
-
-# File tree
-
-`H` -- Toggle hidden file visibility
 
 # Resources
 
