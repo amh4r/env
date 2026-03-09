@@ -1,6 +1,17 @@
 -- Scrollbar with git change and diagnostic markers
 return {
   {
+    "lewis6991/gitsigns.nvim",
+    opts = {
+      -- Without this, gutter signs go stale after commits until the buffer is reopened.
+      watch_gitdir = {
+        enable = true,
+        follow_files = true,
+      },
+    },
+    event = "VeryLazy",
+  },
+  {
     "petertriho/nvim-scrollbar",
     dependencies = {
       "lewis6991/gitsigns.nvim",
