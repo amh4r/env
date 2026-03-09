@@ -113,6 +113,7 @@ Inside lazygit:
 
 # UI
 
+`<leader>uf` -- Toggle autoformat on save
 `<leader>uh` -- Toggle inlay hints
 `<leader>um` -- Toggle minimap
 
