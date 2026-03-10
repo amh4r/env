@@ -79,8 +79,8 @@ Within snacks:
 
 ## Gitsigns
 
-`[h` -- Previous hunk
 `]h` -- Next hunk
+`[h` -- Previous hunk
 `<leader>ghp` -- Preview hunk (inline)
 `<leader>ghr` -- Reset hunk
 `<leader>ghb` -- Blame line
@@ -110,6 +110,8 @@ Inside lazygit:
 `P` -- Push
 `A` -- Amend
 `R` -- Reword commit message (while in commits panel)
+`]` -- Next tab
+`[` -- Previous tab
 
 # UI
 
