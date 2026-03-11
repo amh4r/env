@@ -4,6 +4,7 @@
 
 - [DataGrip](https://www.jetbrains.com/datagrip)
 - [Docker Desktop](https://www.docker.com/products/docker-desktop)
+- [Ghostty](https://ghostty.org)
 - [Karabiner-Elements](https://karabiner-elements.pqrs.org)
 - [Magnet](https://magnet.crowdcafe.com)
 - [Raycast](https://www.raycast.com)
@@ -30,6 +31,8 @@
 - [xsv](https://github.com/BurntSushi/xsv)
 
 ## Configs
+
+Symlinks:
 
 ```
 ln -s ~/personal/env/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
