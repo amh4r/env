@@ -211,10 +211,8 @@ pathmunge "${KREW_ROOT:-$HOME/.krew}/bin"
 ###############
 # Nix
 
-# Uncomment the following 3 lines to enable:
-#. /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-#direnvPath=$(which direnv)
-#eval "$(${direnvPath} hook zsh)"
+export DIRENV_LOG_FORMAT=
+eval "$(direnv hook zsh)"
 
 
 ###############

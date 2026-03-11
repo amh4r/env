@@ -1,13 +1,11 @@
 # My environment
 
-## Programs
+## Apps
 
-- [Alacritty](https://github.com/alacritty/alacritty)
 - [DataGrip](https://www.jetbrains.com/datagrip)
 - [Docker Desktop](https://www.docker.com/products/docker-desktop)
 - [Karabiner-Elements](https://karabiner-elements.pqrs.org)
 - [Magnet](https://magnet.crowdcafe.com)
-- [Postman](https://www.postman.com)
 - [Raycast](https://www.raycast.com)
 - [YubiKey Agent](https://github.com/FiloSottile/yubikey-agent)
 - [YubiKey Manager](https://www.yubico.com/support/download/yubikey-manager)
@@ -46,6 +44,8 @@ ln -s ~/personal/env/tmux/.tmux.conf ~/.tmux.conf
 ln -s ~/personal/env/vim/.vimrc ~/.vimrc
 ln -s ~/personal/env/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
 ln -s ~/personal/env/zsh/.zshrc ~/.zshrc
+ln -s ~/personal/env/direnv/direnvrc ~/.config/direnv/direnvrc
+ln -s ~/personal/env/direnv/direnv.toml ~/.config/direnv/direnv.toml
 ln -s ~/personal/env/zsh/aaronharper.zsh-theme ~/.oh-my-zsh/custom/themes/aaronharper.zsh-theme
 ```
 
