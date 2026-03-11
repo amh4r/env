@@ -8,5 +8,3 @@ Thoroughly review the changes in this PR. To do so, perform each of the followin
 - Find security vulns
 
 Each of these sub agents must produce a summary of its review. Then you must create a summary of these summaries, and output it in `review-summary.md`.
-
-Before launching any subagents, ask the user "Do you have any specific context before we start?" and wait for their response.
