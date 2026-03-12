@@ -52,6 +52,20 @@ ln -s ~/personal/env/direnv/direnv.toml ~/.config/direnv/direnv.toml
 ln -s ~/personal/env/zsh/aaronharper.zsh-theme ~/.oh-my-zsh/custom/themes/aaronharper.zsh-theme
 ```
 
+## Nix
+
+Uses [Determinate Nix](https://github.com/DeterminateSystems/nix-installer). The installer creates `/etc/nix/nix.custom.conf` for user overrides, so we use `-sf` to replace it with our symlink:
+
+```
+sudo ln -sf ~/personal/env/nix/nix.custom.conf /etc/nix/nix.custom.conf
+```
+
+After changing the config, restart the daemon:
+
+```
+sudo launchctl kickstart -k system/systems.determinate.nix-daemon
+```
+
 ## VS Code
 
 Extensions:
