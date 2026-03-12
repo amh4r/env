@@ -123,6 +123,7 @@ Inside lazygit:
 
 `gc` -- Toggle comment (selection)
 `gcc` -- Toggle comment (line)
+`gw` -- Wrap/reflow text to `textwidth` (use instead of `gq`, which is hijacked by conform.nvim)
 
 # Vim Basics
 
