@@ -1,4 +1,6 @@
-Thoroughly review a PR using focused subagents
+---
+description: "Thoroughly review a PR using focused subagents"
+---
 
 Thoroughly review the changes in this PR. To do so, perform each of the following tasks in a separate agent:
 

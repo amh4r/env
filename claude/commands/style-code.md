@@ -1,4 +1,6 @@
-Style uncommitted changes
+---
+description: "Style changes. Defaults to uncommitted changes"
+---
 
 The following style guidelines apply to code that is not yet committed to the repository. They are meant to ensure that code is clean, readable, and maintainable before it is merged into the main codebase.
 
@@ -82,3 +84,7 @@ key: "value"
 # Comments
 
 MUST be succinct. Engineers frequently lose focus when reading long comments, so keep them short and informative.
+
+Do not use em dashes.
+
+Use active voice. Do not use passive voice.
