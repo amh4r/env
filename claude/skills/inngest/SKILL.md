@@ -9,7 +9,7 @@ This skill covers the Inngest **v4** SDK only. If the project uses v3 (check `pa
 
 ## Creating a Client
 
-```typescript
+```ts
 import { Inngest } from "inngest";
 
 const inngest = new Inngest({ id: "my-app" });
@@ -19,7 +19,7 @@ const inngest = new Inngest({ id: "my-app" });
 
 ## Creating a Function
 
-```typescript
+```ts
 import { eventType } from "inngest";
 import { inngest } from "./client";
 
@@ -39,7 +39,7 @@ const userSignup = inngest.createFunction(
 
 Use `eventType()` for typed, validated events:
 
-```typescript
+```ts
 import { eventType } from "inngest";
 import { z } from "zod";
 
@@ -59,7 +59,7 @@ Use `staticSchema<T>()` for type-only (no runtime validation).
 
 ## Cron Triggers
 
-```typescript
+```ts
 inngest.createFunction(
   { id: "daily-cleanup", triggers: [{ cron: "0 0 * * *" }] },
   async ({ step }) => {
@@ -72,7 +72,7 @@ inngest.createFunction(
 
 Wrap discrete operations in `step.run()` for retryability and durability. `step` methods cannot be nested inside other `step` methods.
 
-```typescript
+```ts
 const result = await step.run("fetch-user", async () => {
   return db.users.find(event.data.userId);
 });
@@ -88,7 +88,7 @@ await step.run("send-email", async () => {
 
 Run steps concurrently with `Promise.all()`:
 
-```typescript
+```ts
 const [user, order] = await Promise.all([
   step.run("fetch-user", () => db.users.find(userId)),
   step.run("fetch-order", () => db.orders.find(orderId)),
@@ -97,7 +97,7 @@ const [user, order] = await Promise.all([
 
 Use `Promise.race()` with `group.parallel()` to act on the first step to complete:
 
-```typescript
+```ts
 const fastest = await group.parallel(async () => {
   return Promise.race([
     step.run("api-primary", () => fetchFromPrimary()),
@@ -107,6 +107,41 @@ const fastest = await group.parallel(async () => {
 ```
 
 Without `group.parallel()`, `Promise.race()` waits for all steps to settle before resolving.
+
+## Durable Endpoints
+
+Durable endpoints let you use steps directly inside API route handlers, without creating a full Inngest function.
+
+The client needs an `endpointAdapter` for the framework:
+
+```ts
+import { Inngest } from "inngest";
+import { endpointAdapter } from "inngest/next";
+
+export const inngest = new Inngest({
+  id: "my-app",
+  endpointAdapter,
+});
+```
+
+Then use `inngest.endpoint()` to wrap a route handler, importing `step` from `"inngest"`:
+
+```ts
+import { step } from "inngest";
+import { inngest } from "@/inngest/client";
+
+export const POST = inngest.endpoint(async (req: NextRequest) => {
+  const msg = new URL(req.url).searchParams.get("name");
+
+  const greeting = await step.run("create-greeting", async () => {
+    return `Hello, ${msg}!`;
+  });
+
+  return Response.json(greeting);
+});
+```
+
+Durable endpoints cannot read request bodies yet. Pass data via query params.
 
 ## Local Development
 
