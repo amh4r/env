@@ -11,6 +11,12 @@ vim.filetype.add({
 -- Prefer .git root over LSP root for project detection
 vim.g.root_spec = { ".git", "lsp", "cwd" }
 
+-- Use spellfile from config dir so it's tracked in the dotfiles repo
+vim.opt.spellfile = vim.fn.stdpath("config") .. "/spell/en.utf-8.add"
+
+-- Show all markup characters (e.g. ``` in markdown)
+vim.opt.conceallevel = 0
+
 -- Keep default register separate from system clipboard.
 -- Use "+y / "+p to explicitly access the system clipboard.
 vim.opt.clipboard = ""

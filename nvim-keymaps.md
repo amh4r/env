@@ -97,6 +97,11 @@ Within snacks:
 `<leader>cO` -- Choose ours
 `<leader>ct` -- Choose theirs
 
+`zR` -- Open all folds
+`zM` -- Close all folds
+`zo` -- Open fold under cursor
+`zc` -- Close fold under cursor
+
 ## Lazygit
 
 `<leader>gs` -- Git status
@@ -120,6 +125,9 @@ Inside lazygit:
 `<leader>um` -- Toggle minimap
 
 # Editing
+
+`zg` -- Add word under cursor to spellfile
+`zw` -- Mark word under cursor as misspelled
 
 `gc` -- Toggle comment (selection)
 `gcc` -- Toggle comment (line)
