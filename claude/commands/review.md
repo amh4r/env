@@ -8,5 +8,6 @@ Thoroughly review the changes in this PR. To do so, perform each of the followin
 - Ensure code is readable and maintainable
 - Find bugs
 - Find security vulns
+- Ensure that significant new behavior is properly tested
 
 Each of these sub agents must produce a summary of its review. Then you must create a summary of these summaries, and output it in `review-summary.md`.
