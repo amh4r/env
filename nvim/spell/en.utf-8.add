@@ -40,3 +40,6 @@ SHA1
 JWT
 JWTs
 CSRF
+retryable
+namespaced
+retryability
