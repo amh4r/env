@@ -2,6 +2,7 @@
 
 `<leader><space>` -- Find files
 `<leader>ff` -- Find files
+`<leader>fO` -- Reveal current file in Finder
 `<leader>sg` -- Grep. Can glob search (e.g. `myFunction -- -g *.ts`)
 `<leader>sk` -- Search keymaps
 
@@ -76,6 +77,8 @@ Within snacks:
 `<C-w>q` -- Close current
 
 # Git
+
+`<leader>gB` -- Open file on GitHub (current branch/line)
 
 ## Gitsigns
 
