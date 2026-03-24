@@ -1,11 +1,6 @@
----
-name: inngest-ts
-description: "Help with Inngest TypeScript SDK development. TRIGGER when: user mentions Inngest and is working with JavaScript or TypeScript."
----
+# Inngest TypeScript SDK
 
-# Inngest v4 TypeScript SDK
-
-This skill covers the Inngest **v4** SDK only. If the project uses v3 (check `package.json` for `"inngest": "^3"`), tell the user this skill only covers v4 and link them to the migration guide: https://www.inngest.com/docs/reference/typescript/v4/migrations/v3-to-v4
+This reference covers the Inngest **v4** SDK only. If the project uses v3 (check `package.json` for `"inngest": "^3"`), tell the user this skill only covers v4 and link them to the migration guide: https://www.inngest.com/docs/reference/typescript/v4/migrations/v3-to-v4
 
 ## Creating a Client
 
@@ -172,9 +167,3 @@ See https://www.inngest.com/docs/reference/typescript/logging
 - Set `INNGEST_SIGNING_KEY` env var. Get it from https://app.inngest.com/env/production/manage/signing-key
 - Set `INNGEST_EVENT_KEY` env var. Get it from https://app.inngest.com/env/production/manage/keys
 - `INNGEST_DEV` is not needed. The SDK defaults to cloud mode.
-
-## Instructions
-
-1. Ask the user what they want to build if not specified.
-2. Find the existing Inngest client in the project before creating files.
-3. Use steps for any operation that should be independently retryable.
