@@ -1,6 +1,6 @@
 ---
-name: inngest
-description: "Help with Inngest TypeScript SDK development"
+name: inngest-ts
+description: "Help with Inngest TypeScript SDK development. TRIGGER when: user mentions Inngest and is working with JavaScript or TypeScript."
 ---
 
 # Inngest v4 TypeScript SDK
@@ -70,7 +70,12 @@ inngest.createFunction(
 
 ## Steps
 
-Wrap discrete operations in `step.run()` for retryability and durability. `step` methods cannot be nested inside other `step` methods.
+All non-deterministic code must go inside a `step.run()`. This includes:
+
+- IO: database reads/writes, HTTP requests, file access
+- Pseudo-random calls: `Date.now()`, `Math.random()`
+
+This ensures results are memoized and replayed consistently across retries. `step` methods cannot be nested inside other `step` methods.
 
 ```ts
 const result = await step.run("fetch-user", async () => {
@@ -83,6 +88,14 @@ await step.run("send-email", async () => {
   await sendEmail(result.email);
 });
 ```
+
+### Step Types
+
+- `step.run(id, fn)` - Run a unit of work with retryability
+- `step.invoke(id, { function, data })` - Call another Inngest function like an RPC
+- `step.sendEvent(id, eventPayload)` - Send an event
+- `step.waitForEvent(id, { event, timeout })` - Pause execution until a specific event is received
+- `step.sleep(id, duration)` - Sleep for a duration (e.g., `"1h"`, `"30m"`)
 
 ### Parallel
 
@@ -149,6 +162,16 @@ The SDK defaults to cloud mode. For local development:
 
 - Set `INNGEST_DEV=1` in your environment. Best in the `package.json` dev script.
 - Run the Inngest Dev Server with the Inngest endpoint URL: `npx --ignore-script=false inngest-cli@latest dev -u http://localhost:3000/api/inngest` (replace `3000` with their port)
+
+## Logging
+
+See https://www.inngest.com/docs/reference/typescript/logging
+
+## Production
+
+- Set `INNGEST_SIGNING_KEY` env var. Get it from https://app.inngest.com/env/production/manage/signing-key
+- Set `INNGEST_EVENT_KEY` env var. Get it from https://app.inngest.com/env/production/manage/keys
+- `INNGEST_DEV` is not needed. The SDK defaults to cloud mode.
 
 ## Instructions
 
