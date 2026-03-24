@@ -42,6 +42,10 @@ Within snacks:
 `a` -- Create file in focused dir
 `d` -- Delete file
 `H` -- Toggle hidden file visibility
+`I` -- Toggle ignored file visibility
+`h` -- Close / go to parent
+`l` -- Open
+`Z` -- Close all
 
 # Layout
 
@@ -79,6 +83,7 @@ Within snacks:
 # Git
 
 `<leader>gB` -- Open file on GitHub (current branch/line)
+`<leader>gs` -- Git status (changed files picker)
 
 ## Gitsigns
 
@@ -95,6 +100,7 @@ Within snacks:
 `<leader>gV` -- Close diffview
 `:DiffviewOpen main...HEAD` -- Open diffview and compare against the `main` branch
 
+`R` -- Refresh
 `]x` -- Next conflict
 `[x` -- Prev conflict
 `<leader>cO` -- Choose ours
