@@ -7,6 +7,7 @@ theme = 0x96f
 window-padding-balance = true
 window-padding-x = 0
 window-padding-y = 0
+window-step-resize = true
 
 # Use Option as Alt for keybinds
 macos-option-as-alt = true
