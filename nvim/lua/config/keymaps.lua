@@ -18,3 +18,18 @@ vim.keymap.set("n", "<leader>fO", function()
   local filepath = vim.fn.expand("%:p")
   vim.fn.system({ "open", "-R", filepath })
 end, { desc = "Reveal in Finder" })
+
+-- Side-by-side diff of current file against index (toggle)
+vim.keymap.set("n", "<leader>g0", function()
+  if vim.wo.diff then
+    vim.cmd("diffoff!")
+    vim.cmd("only")
+    for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+      if vim.api.nvim_buf_get_name(buf):match("^gitsigns://") then
+        vim.api.nvim_buf_delete(buf, { force = true })
+      end
+    end
+  else
+    require("gitsigns").diffthis()
+  end
+end, { desc = "Diff This" })

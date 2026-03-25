@@ -2,7 +2,9 @@
 
 `<leader><space>` -- Find files
 `<leader>ff` -- Find files
-`<leader>fO` -- Reveal current file in Finder
+`<localleader>y` -- Copy relative path to clipboard (custom)
+`<leader>fO` -- Reveal current file in Finder (custom)
+`<M-c>` (visual) -- Yank to system clipboard via Ghostty Cmd+C (custom)
 `<leader>sg` -- Grep. Can glob search (e.g. `myFunction -- -g *.ts`)
 `<leader>sk` -- Search keymaps
 
@@ -89,6 +91,7 @@ Within snacks:
 
 `]h` -- Next hunk
 `[h` -- Previous hunk
+`<leader>g0` -- Diff this file side-by-side (custom)
 `<leader>ghp` -- Preview hunk (inline)
 `<leader>ghr` -- Reset hunk
 `<leader>ghb` -- Blame line
