@@ -40,6 +40,7 @@ Steps can run concurrently. The specifics depend on the language SDK.
 1. Detect the language from the project (check for `package.json`, `go.mod`, `pyproject.toml`, etc.).
 2. Read the language-specific reference:
    - TypeScript/JavaScript: read `references/typescript/typescript.md`
+   - Python: read `references/python/python.md`
 3. If a language-specific reference doesn't exist yet, use the core concepts above and the official docs at https://www.inngest.com/docs.
 4. Ask the user what they want to build if not specified.
 5. Find the existing Inngest client in the project before creating files.
