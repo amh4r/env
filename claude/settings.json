@@ -1,27 +1,30 @@
 {
-  "statusLine": {
-    "type": "command",
-    "command": "bash /Users/aharper/.claude/statusline.sh"
-  },
-  "sandbox": {
-    "enabled": true,
-    "autoAllowBashIfSandboxed": true,
-    "allowUnsandboxedCommands": false,
-    "network": {
-      "allowLocalBinding": true
-    }
-  },
-  "hooks": {
-    "Notification": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/usr/bin/osascript -e 'display notification \"👋\" with title \"Claude\"'"
-          }
-        ]
-      }
-    ]
-  }
+	"statusLine": {
+		"type": "command",
+		"command": "bash ~/.claude/statusline.sh"
+	},
+	"sandbox": {
+		"enabled": true,
+		"autoAllowBashIfSandboxed": true,
+		"allowUnsandboxedCommands": false,
+		"network": {
+			"allowLocalBinding": true
+		},
+		"filesystem": {
+			"allowWrite": ["~/Library/Caches/go-build"]
+		}
+	},
+	"hooks": {
+		"Notification": [
+			{
+				"matcher": "",
+				"hooks": [
+					{
+						"type": "command",
+						"command": "/usr/bin/osascript -e 'display notification \"👋\" with title \"Claude\"'"
+					}
+				]
+			}
+		]
+	}
 }
