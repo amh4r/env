@@ -8,8 +8,14 @@
 		"autoAllowBashIfSandboxed": true,
 		"allowUnsandboxedCommands": false,
 		"network": {
+			"allowedDomains": ["api.github.com"],
 			"allowLocalBinding": true
 		},
+
+    // Enabled to make the gh CLI work. Without it, there were cert errors in
+    // Claude's sandbox
+		"enableWeakerNetworkIsolation": true,
+
 		"filesystem": {
 			"allowWrite": ["~/Library/Caches/go-build"]
 		}
