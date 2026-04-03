@@ -1,0 +1,20 @@
+- Truthiness traps: `0`, `""`, `NaN`, and `null`/`undefined` are all falsy. `if (value)` guards silently reject valid inputs like `0` or empty string. Use explicit checks (`value !== undefined`, `value !== null`) instead
+- `==` vs `===` coercion: `==` performs type coercion (`"0" == false` is true). Always use `===` unless coercion is intentional
+- Optional chaining returns undefined: `obj?.foo?.bar` returns `undefined` (not `null`) when short-circuiting. Code that checks `=== null` after optional chaining misses the undefined case. Use `== null` (loose equality) to catch both
+- Array method gotchas: `Array.sort()` mutates in place and sorts lexicographically by default (`[10, 2, 1].sort()` gives `[1, 10, 2]`). `Array.find()` returns `undefined` on no match, which is indistinguishable from finding `undefined` in the array
+- `parseInt` without radix: `parseInt("08")` works in modern engines but `parseInt("0x10")` returns 16. Always pass the radix: `parseInt(str, 10)`
+- Promise error swallowing: a `.then()` chain without `.catch()` (or missing `await` in a try/catch) silently swallows rejections. Especially dangerous when calling an async function without `await` -- the returned promise floats away and its rejection is unhandled
+- `async` function always returns Promise: forgetting `await` on an async call means you're operating on the Promise object, not the resolved value. TypeScript catches some of these but not all (e.g. in conditional or void positions)
+- Object spread is shallow: `{ ...obj }` only shallow-copies. Nested objects are still shared references. Mutating a nested property on the "copy" mutates the original
+- `typeof null === "object"`: type-checking with `typeof` doesn't distinguish null from objects. Use `value === null` explicitly
+- `delete` leaves holes in arrays: `delete arr[i]` sets the element to `undefined` but doesn't change length or shift elements. Use `splice` instead
+- `for...in` iterates prototype chain: `for (const key in obj)` includes inherited enumerable properties. Use `Object.keys()`, `Object.entries()`, or `for...of` with appropriate iterables
+- `this` binding loss: passing a method as a callback (`setTimeout(obj.method, 100)`) loses `this` binding. Must use arrow function, `.bind()`, or method shorthand
+- Floating point arithmetic: `0.1 + 0.2 !== 0.3`. Any equality comparison on decimal arithmetic results is suspect
+- `Date` constructor month is 0-indexed: `new Date(2024, 1, 1)` is February 1st, not January. Off-by-one month bugs are extremely common
+- `JSON.stringify` drops `undefined` and functions: properties with `undefined` values, function values, and `Symbol` keys are silently omitted from serialization. Sparse array holes become `null`
+- TypeScript type narrowing invalidated by async: narrowing a variable's type in an `if` block doesn't survive across `await` boundaries. Each `await` is a suspension point where other microtasks can run and mutate shared state, so TypeScript conservatively widens the type back
+- Non-null assertion abuse: `value!` tells TypeScript to trust you. If used incorrectly, it hides a real null/undefined that crashes at runtime. Watch for `!` on values from external input, API responses, or map lookups
+- Index signature returning undefined: `Record<string, T>` and index signatures claim to return `T`, but actually return `T | undefined` at runtime. TypeScript doesn't catch missing-key access unless `noUncheckedIndexedAccess` is enabled
+- Enum pitfalls: numeric enums allow reverse mapping (`MyEnum[0]` returns the name string), so passing an arbitrary number where an enum is expected silently succeeds. Prefer `const` enums or string literal unions
+- `RegExp` with global flag is stateful: a regex with `/g` flag has a `lastIndex` property that advances on each `exec()` or `test()` call. Reusing the same regex object across multiple strings gives alternating true/false results

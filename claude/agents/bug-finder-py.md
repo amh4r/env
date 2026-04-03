@@ -1,0 +1,20 @@
+- Mutable default arguments: `def f(items=[])` shares the same list across all calls. Mutations accumulate. Use `None` as default and create inside the function
+- Late binding closures: closures in loops capture the variable, not its value. `[lambda: i for i in range(3)]` all return 2. Use default arguments (`lambda i=i: i`) or `functools.partial` to capture eagerly
+- `except Exception` too broad: catches `KeyboardInterrupt` only if you write bare `except:`. But `except Exception` still catches `StopIteration`, `GeneratorExit`, and other flow-control exceptions that should propagate. Be specific about what you catch
+- Catching and re-raising without `from`: `raise NewError()` inside an `except` block loses the original traceback. Use `raise NewError() from err` to chain exceptions, or `raise` alone to re-raise the original
+- `is` vs `==`: `is` checks identity, not equality. `x is True` can fail for truthy values. CPython interns small integers (-5 to 256) and short strings, so `is` appears to work in tests but fails with larger values in production
+- Iterator exhaustion: iterators (generators, `map()`, `filter()`, file objects) can only be consumed once. A second `for` loop over the same iterator silently does nothing. Convert to list first if multiple passes are needed
+- Dict iteration during mutation: adding or removing keys while iterating a dict raises `RuntimeError`. Modifying values is safe, but structural changes require iterating over a copy (`list(d.keys())`)
+- `datetime` naive vs aware: mixing timezone-naive and timezone-aware datetimes raises `TypeError` on comparison/arithmetic. Code that creates `datetime.now()` (naive) and compares with an API response (often UTC-aware) will crash
+- `os.path.join` with absolute component: `os.path.join("/base", "/user/input")` returns `"/user/input"`, discarding the base. User-controlled path components can escape intended directories
+- Float as dict key: `float('nan') != float('nan')`, so NaN as a dict key creates entries that can never be retrieved. Also, `1 == 1.0 == True` so `{1: 'a', True: 'b', 1.0: 'c'}` has one key with value `'c'`
+- `__init__` returning early: if `__init__` returns before setting all attributes, subsequent method calls get `AttributeError`. No compile-time check enforces that all attributes are set on all paths
+- String `split()` vs `split(' ')`: `'a  b'.split()` gives `['a', 'b']` (splits on any whitespace, strips empty), but `'a  b'.split(' ')` gives `['a', '', 'b']`. Mixing these up corrupts parsing
+- `asyncio` blocking the event loop: calling a synchronous blocking function (HTTP request, file I/O, `time.sleep`) inside an `async` function blocks the entire event loop. Must use `await` equivalents or `run_in_executor`
+- Shallow copy via slice: `new_list = old_list[:]` and `list(old_list)` are shallow copies. Nested mutable objects are shared. Same applies to `dict.copy()` and `copy.copy()`
+- `import` circular dependencies: circular imports at module level can cause `ImportError` or attributes being `None` / missing at import time, depending on which module is imported first. The error is often confusing and non-deterministic
+- `finally` swallowing exceptions: a `return` in a `finally` block silently swallows any exception that was being propagated, including unhandled ones
+- `__eq__` without `__hash__`: defining `__eq__` without `__hash__` makes instances unhashable (can't be used in sets or as dict keys). Python 3 sets `__hash__` to `None` when `__eq__` is defined
+- f-string with `=` debug format: `f"{expr=}"` includes the expression text, which can leak source code details into logs or user-facing output
+- `subprocess` shell injection: `subprocess.run(f"cmd {user_input}", shell=True)` is command injection. Use list form: `subprocess.run(["cmd", user_input])`
+- Generator `return` value is lost: `return value` in a generator sets `StopIteration.value`, but `for` loops discard it. Only `yield from` or manual `next()` can access the return value
