@@ -59,3 +59,6 @@ mutex
 GC
 truthy
 tradeoff
+LLM
+GPT
+PRD
