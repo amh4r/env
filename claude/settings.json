@@ -25,7 +25,7 @@
 			"allowLocalBinding": true
 		},
 		"filesystem": {
-			"allowWrite": ["~/Library/Caches/go-build", "~/.cache/uv"]
+			"allowWrite": ["~/Library/Caches/go-build", "~/.cache/uv", "~/.npm"]
 		},
 		"enableWeakerNetworkIsolation": true
 	},
@@ -58,8 +58,6 @@
 			"Read(~/.git-credentials)",
 			"Read(~/.docker/config.json)",
 			"Read(~/.kube/**)",
-			"Read(~/.npmrc)",
-			"Read(~/.npm/**)",
 			"Read(~/.pypirc)",
 			"Read(~/.gem/credentials)",
 			"Read(~/Library/Keychains/**)",
