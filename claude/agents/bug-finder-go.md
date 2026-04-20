@@ -602,6 +602,22 @@ var msg Message
 json.Unmarshal(data2, &msg)
 ```
 
+### json.Unmarshal of null into map or slice
+
+Unmarshaling a JSON `null` into a map or slice sets it to `nil`, even if the destination was initialized as empty. Subsequent writes to the map panic, and nil checks that were false before the unmarshal become true.
+
+```go
+// Bug: data is nil after unmarshal, next write panics
+data := map[string]any{}
+json.Unmarshal([]byte(`null`), &data)
+data["key"] = 1 // panic: assignment to entry in nil map
+
+// Fix: re-initialize if nil, or check before writing
+if data == nil {
+    data = map[string]any{}
+}
+```
+
 ## Filesystem and paths
 
 ### filepath.Join cleaning
