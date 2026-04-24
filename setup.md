@@ -36,9 +36,11 @@ Symlinks:
 
 ```
 ln -s ~/personal/env/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
+ln -s ~/personal/env/claude/agents ~/.claude/agents
 ln -s ~/personal/env/claude/commands ~/.claude/commands
 ln -s ~/personal/env/claude/keybindings.json ~/.claude/keybindings.json
 ln -s ~/personal/env/claude/settings.json ~/.claude/settings.json
+ln -s ~/personal/env/claude/skills ~/.claude/skills
 ln -s ~/personal/env/claude/statusline.sh ~/.claude/statusline.sh
 ln -s ~/personal/env/ghostty/config ~/.config/ghostty/config
 ln -s ~/personal/env/git/.gitconfig ~/.gitconfig
