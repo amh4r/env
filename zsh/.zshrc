@@ -8,7 +8,7 @@ ZSH_DISABLE_COMPFIX=true
 # Oh My Zsh
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/aharper/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="aaronharper"
 
@@ -130,6 +130,12 @@ printf "\e[?1042l"
 alias claude="SSH_AUTH_SOCK= claude"
 
 
+##############
+# Claude
+
+pathmunge $HOME/.local/bin
+
+
 
 ###############
 # Docker
@@ -164,7 +170,7 @@ alias gcp=gcloud
 ###############
 # Homebrew
 
-HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_NO_AUTO_UPDATE=1
 
 
 
@@ -179,8 +185,8 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 # Load nvm bash completion
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-export DENO_INSTALL="/Users/aharper/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
+# export DENO_INSTALL="/Users/aharper/.deno"
+# export PATH="$DENO_INSTALL/bin:$PATH"
 
 # bun completions
 [ -s "/Users/aharper/.bun/_bun" ] && source "/Users/aharper/.bun/_bun"
@@ -299,14 +305,6 @@ alias watch='watch '
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/aharper/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/aharper/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/aharper/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/aharper/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-. "/Users/aharper/.deno/env"
-# Initialize zsh completions (added by deno install script)
-autoload -Uz compinit
-compinit
-. "$HOME/.local/bin/env"
 
 
 pathmunge ~/bin

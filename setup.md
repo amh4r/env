@@ -28,45 +28,86 @@
 - [Terraform](https://www.terraform.io)
 - [tmux](https://github.com/tmux/tmux)
 - [tpm](https://github.com/tmux-plugins/tpm)
+- [uv](https://docs.astral.sh/uv/getting-started/installation/)
 - [xsv](https://github.com/BurntSushi/xsv)
+
+## Install
+
+**Homebrew stuff**
+
+```sh
+brew install direnv fx fzf gping htop jq ngrok pyenv ripgrep uv yubikey-agent
+brew install --cask karabiner-elements
+```
+
+
+**SSH and clone this repo**
+
+```sh
+brew services start yubikey-agent
+export SSH_AUTH_SOCK="$(brew --prefix)/var/run/yubikey-agent.sock"
+git clone git@github.com:amh4r/env.git ~/personal/env
+```
+
+**Fzf**
+
+```sh
+$(brew --prefix)/opt/fzf/install
+```
+
+**Nix**
+
+Uses [Determinate Nix](https://github.com/DeterminateSystems/nix-installer). The installer creates `/etc/nix/nix.custom.conf` for user overrides, so we use `-sf` to replace it with our symlink:
+
+```sh
+sudo ln -sf ~/personal/env/nix/nix.custom.conf /etc/nix/nix.custom.conf
+```
+
+After changing the config, restart the daemon:
+
+```sh
+sudo launchctl kickstart -k system/systems.determinate.nix-daemon
+```
+
+**Oh My Zsh**
+
+```sh
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+```
+
+**Tmux**
+
+```sh
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
+**VS Code**
+
+Cmd+Shift+P → "Shell Command: Install 'code' command in PATH"
 
 ## Configs
 
 Symlinks:
 
 ```
-ln -s ~/personal/env/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
-ln -s ~/personal/env/claude/agents ~/.claude/agents
-ln -s ~/personal/env/claude/commands ~/.claude/commands
-ln -s ~/personal/env/claude/keybindings.json ~/.claude/keybindings.json
-ln -s ~/personal/env/claude/settings.json ~/.claude/settings.json
-ln -s ~/personal/env/claude/skills ~/.claude/skills
-ln -s ~/personal/env/claude/statusline.sh ~/.claude/statusline.sh
-ln -s ~/personal/env/ghostty/config ~/.config/ghostty/config
-ln -s ~/personal/env/git/.gitconfig ~/.gitconfig
-ln -s ~/personal/env/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
-ln -s ~/personal/env/nvim ~/.config/nvim
-ln -s ~/personal/env/tmux/.tmux.conf ~/.tmux.conf
-ln -s ~/personal/env/vim/.vimrc ~/.vimrc
-ln -s ~/personal/env/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
-ln -s ~/personal/env/zsh/.zshrc ~/.zshrc
-ln -s ~/personal/env/direnv/direnvrc ~/.config/direnv/direnvrc
-ln -s ~/personal/env/direnv/direnv.toml ~/.config/direnv/direnv.toml
-ln -s ~/personal/env/zsh/aaronharper.zsh-theme ~/.oh-my-zsh/custom/themes/aaronharper.zsh-theme
-```
-
-## Nix
-
-Uses [Determinate Nix](https://github.com/DeterminateSystems/nix-installer). The installer creates `/etc/nix/nix.custom.conf` for user overrides, so we use `-sf` to replace it with our symlink:
-
-```
-sudo ln -sf ~/personal/env/nix/nix.custom.conf /etc/nix/nix.custom.conf
-```
-
-After changing the config, restart the daemon:
-
-```
-sudo launchctl kickstart -k system/systems.determinate.nix-daemon
+ln -sn ~/personal/env/claude/agents ~/.claude/agents
+ln -sn ~/personal/env/claude/commands ~/.claude/commands
+ln -sn ~/personal/env/claude/keybindings.json ~/.claude/keybindings.json
+ln -sn ~/personal/env/claude/settings.json ~/.claude/settings.json
+ln -sn ~/personal/env/claude/skills ~/.claude/skills
+ln -sn ~/personal/env/claude/statusline.sh ~/.claude/statusline.sh
+ln -sn ~/personal/env/ghostty/config ~/.config/ghostty/config
+ln -sn ~/personal/env/git/.gitconfig ~/.gitconfig
+ln -sn ~/personal/env/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
+ln -sn ~/personal/env/nvim ~/.config/nvim
+ln -sn ~/personal/env/tmux/.tmux.conf ~/.tmux.conf
+ln -sn ~/personal/env/vim/.vimrc ~/.vimrc
+ln -sn ~/personal/env/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
+ln -sn ~/personal/env/zsh/.zshrc ~/.zshrc
+ln -sn ~/personal/env/direnv/direnvrc ~/.config/direnv/direnvrc
+ln -sn ~/personal/env/direnv/direnv.toml ~/.config/direnv/direnv.toml
+ln -sn ~/personal/env/zsh/aaronharper.zsh-theme ~/.oh-my-zsh/custom/themes/aaronharper.zsh-theme
 ```
 
 ## VS Code
