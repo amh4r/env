@@ -59,6 +59,8 @@
   "explorer.autoRevealExclude": {
     "**/vendor": true
   },
+  "extensions.autoCheckUpdates": false,
+  "extensions.autoUpdate": false,
   "files.associations": {
     "*.avro": "json",
     "*.env": "shellscript",
@@ -102,5 +104,7 @@
   "workbench.startupEditor": "none",
   "zig.initialSetupDone": true,
   "zig.path": "zig",
-  "zig.zls.path": "/Users/aharper/Library/Application Support/Code/User/globalStorage/ziglang.vscode-zig/zls_install/zls"
+  "zig.zls.path": "/Users/aharper/Library/Application Support/Code/User/globalStorage/ziglang.vscode-zig/zls_install/zls",
+  "gitlens.ai.model": "vscode",
+  "gitlens.ai.vscode.model": "copilot:gpt-4.1"
 }

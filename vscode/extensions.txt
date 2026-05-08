@@ -1,0 +1,10 @@
+alefragnani.bookmarks@14.1.1
+davidanson.vscode-markdownlint@0.61.2
+eamodio.gitlens@17.12.2
+golang.go@0.52.2
+ms-python.debugpy@2026.6.0
+ms-python.python@2026.4.0
+ms-python.vscode-pylance@2026.2.1
+ms-python.vscode-python-envs@1.30.0
+redhat.vscode-yaml@1.23.0
+vscodevim.vim@1.32.4

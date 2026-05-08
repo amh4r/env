@@ -40,7 +40,6 @@ brew install direnv fx fzf gping htop jq ngrok pyenv ripgrep uv yubikey-agent
 brew install --cask karabiner-elements
 ```
 
-
 **SSH and clone this repo**
 
 ```sh
@@ -67,6 +66,12 @@ After changing the config, restart the daemon:
 
 ```sh
 sudo launchctl kickstart -k system/systems.determinate.nix-daemon
+```
+
+Setup direnv:
+
+```sh
+nix profile install nixpkgs#nix-direnv
 ```
 
 **Oh My Zsh**
@@ -112,17 +117,16 @@ ln -sn ~/personal/env/zsh/aaronharper.zsh-theme ~/.oh-my-zsh/custom/themes/aaron
 
 ## VS Code
 
-Extensions:
+Auto-updates are disabled in `settings.json` to mitigate supply-chain attacks. Extensions are pinned to specific versions in `vscode/extensions.txt`.
 
-- Bookmarks
-- ESLint
-- GitHub Copilot
-- GitLens
-- Go
-- HashiCorp Terraform
-- Isort
-- Makefile Tools
-- Prettier
-- Python
-- Vim
-- YAML
+Install pinned extensions:
+
+```sh
+xargs -n1 code --install-extension < ~/personal/env/vscode/extensions.txt
+```
+
+To update an extension, bump the version in `extensions.txt` and re-run the install command. Refresh the list with current versions:
+
+```sh
+code --list-extensions --show-versions > ~/personal/env/vscode/extensions.txt
+```
