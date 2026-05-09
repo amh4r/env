@@ -12,6 +12,7 @@
     gping
     htop
     jq
+    neovim
     ngrok
     nix-direnv
     pyenv
