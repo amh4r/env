@@ -35,8 +35,10 @@
 
 **Homebrew stuff**
 
+CLI tools are managed by Home Manager (see below). Brew is only used for `yubikey-agent` (needs `brew services` for its launchd agent), plus casks.
+
 ```sh
-brew install direnv fx fzf gping htop jq ngrok pyenv ripgrep uv yubikey-agent
+brew install yubikey-agent
 brew install --cask karabiner-elements
 ```
 
@@ -46,12 +48,6 @@ brew install --cask karabiner-elements
 brew services start yubikey-agent
 export SSH_AUTH_SOCK="$(brew --prefix)/var/run/yubikey-agent.sock"
 git clone git@github.com:amh4r/env.git ~/personal/env
-```
-
-**Fzf**
-
-```sh
-$(brew --prefix)/opt/fzf/install
 ```
 
 **Nix**
@@ -68,10 +64,25 @@ After changing the config, restart the daemon:
 sudo launchctl kickstart -k system/systems.determinate.nix-daemon
 ```
 
-Setup direnv:
+**Home Manager**
+
+CLI packages are declared in `nix/home.nix`. First-time bootstrap:
 
 ```sh
-nix profile install nixpkgs#nix-direnv
+nix run home-manager/release-25.11 -- switch --flake ~/personal/env/nix#aaron -b backup
+```
+
+After that, `home-manager` is on PATH. Apply changes by editing `nix/home.nix` and running:
+
+```sh
+home-manager switch --flake ~/personal/env/nix#aaron
+```
+
+To bump pinned package versions (within the stable channel), update the lock file and re-switch:
+
+```sh
+nix flake update --flake ~/personal/env/nix
+home-manager switch --flake ~/personal/env/nix#aaron
 ```
 
 **Oh My Zsh**

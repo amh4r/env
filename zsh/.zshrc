@@ -148,7 +148,8 @@ alias dkc=docker-compose
 ###############
 # fzf
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source ~/.nix-profile/share/fzf/key-bindings.zsh
+source ~/.nix-profile/share/fzf/completion.zsh
 
 
 
