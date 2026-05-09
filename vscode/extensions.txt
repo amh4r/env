@@ -1,4 +1,5 @@
 alefragnani.bookmarks@14.1.1
+charliermarsh.ruff@2026.40.0
 davidanson.vscode-markdownlint@0.61.2
 eamodio.gitlens@17.12.2
 golang.go@0.52.2
