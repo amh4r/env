@@ -186,18 +186,18 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 # Load nvm bash completion
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-# export DENO_INSTALL="/Users/aharper/.deno"
+# export DENO_INSTALL="$HOME/.deno"
 # export PATH="$DENO_INSTALL/bin:$PATH"
 
 # bun completions
-[ -s "/Users/aharper/.bun/_bun" ] && source "/Users/aharper/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # pnpm
-export PNPM_HOME="/Users/aharper/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -305,10 +305,10 @@ alias watch='watch '
 
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/aharper/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/aharper/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f "$HOME/Downloads/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/Downloads/google-cloud-sdk/path.zsh.inc"; fi
 
 
 pathmunge ~/bin
 
 # opencode
-export PATH=/Users/aharper/.opencode/bin:$PATH
+export PATH=$HOME/.opencode/bin:$PATH
