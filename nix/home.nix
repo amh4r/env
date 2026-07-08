@@ -15,6 +15,7 @@
     neovim
     ngrok
     nix-direnv
+    pnpm
     pyenv
     ripgrep
     tmux
