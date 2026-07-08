@@ -24,6 +24,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[markdown]": {
+    "editor.formatOnSave": false,
     "editor.wordWrap": "bounded",
     "editor.wordWrapColumn": 120
   },
@@ -60,7 +61,7 @@
     "**/vendor": true
   },
   "extensions.autoCheckUpdates": false,
-  "extensions.autoUpdate": false,
+  "extensions.autoUpdate": "off",
   "files.associations": {
     "*.avro": "json",
     "*.env": "shellscript",
@@ -106,5 +107,25 @@
   "zig.path": "zig",
   "zig.zls.path": "/Users/aharper/Library/Application Support/Code/User/globalStorage/ziglang.vscode-zig/zls_install/zls",
   "gitlens.ai.model": "vscode",
-  "gitlens.ai.vscode.model": "copilot:gpt-4.1"
+  "gitlens.ai.vscode.model": "copilot:gpt-4.1",
+  "github.copilot.chat.cloudAgent.enabled": false,
+  "github.copilot.chat.claudeAgent.enabled": false,
+  "github.copilot.chat.backgroundAgent.enabled": false,
+  "workbench.openInAgents.enabled": false,
+  "json.schemaDownload.trustedDomains": {
+    "https://schemastore.azurewebsites.net/": true,
+    "https://raw.githubusercontent.com/microsoft/vscode/": true,
+    "https://raw.githubusercontent.com/devcontainers/spec/": true,
+    "https://www.schemastore.org/": true,
+    "https://json.schemastore.org/": true,
+    "https://json-schema.org/": true,
+    "https://developer.microsoft.com/json-schemas/": true,
+    "https://biomejs.dev": true
+  },
+  "biome.suggestInstallingGlobally": false,
+  "extensions.ignoreRecommendations": true,
+  "workbench.editorAssociations": {
+    "git-rebase-todo": "default"
+  },
+  "chat.disableAIFeatures": true
 }
