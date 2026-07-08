@@ -38,8 +38,9 @@
 CLI tools are managed by Home Manager (see below). Brew is only used for `yubikey-agent` (needs `brew services` for its launchd agent), plus casks.
 
 ```sh
-brew install yubikey-agent
+brew install displayplacer yubikey-agent
 brew install --cask karabiner-elements
+brew install --cask orbstack
 ```
 
 **SSH and clone this repo**
@@ -107,6 +108,8 @@ Cmd+Shift+P → "Shell Command: Install 'code' command in PATH"
 Symlinks:
 
 ```
+mkdir -p ~/.codex/skills
+ln -sn ~/personal/env/codex/skills/writing-spec ~/.codex/skills/writing-spec
 ln -sn ~/personal/env/claude/agents ~/.claude/agents
 ln -sn ~/personal/env/claude/commands ~/.claude/commands
 ln -sn ~/personal/env/claude/keybindings.json ~/.claude/keybindings.json
