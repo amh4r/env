@@ -9,6 +9,7 @@
     direnv
     fx
     fzf
+    go
     gping
     htop
     jq
