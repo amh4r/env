@@ -12,6 +12,8 @@ Write specs for two audiences:
 
 Keep the leader-facing sections high-level and brief. Put implementation detail, investigation notes, and deep tradeoff analysis in the developer-facing sections.
 
+Specs don't need to exhaustively describe every nuanced change. We need to balance spec depth, spec readability, engineer autonomy. Important things need to be described, but not details with small significance.
+
 ## Section Order
 
 Use these sections in this order when they apply:
@@ -24,12 +26,15 @@ Use these sections in this order when they apply:
 6. Blocked by
 7. Context
 8. Implementation
-9. Testing
-10. Alternatives
-11. Research
-12. References
+9. Docs
+10. Testing
+11. Alternatives
+12. Research
+13. References
 
 Omit sections that truly do not apply. Do not invent fake blockers, risks, research, or alternatives just to fill the outline. If a section matters but information is missing, include it with explicit open questions or `TBD` items.
+
+These sections must be H1 (`#`).
 
 ## Audience Split
 
@@ -80,6 +85,8 @@ Answer: What could go wrong?
 
 Call out meaningful technical, product, operational, migration, performance, reliability, security, compatibility, and delivery risks. Include mitigations when known. Keep this section leader-readable; detailed test plans and implementation mechanics belong in `Implementation`.
 
+Only mention new risks introduced by the spec's proposed changes.
+
 ### Release
 
 Answer: How will we safely release the solution?
@@ -104,11 +111,17 @@ Answer: How will we implement the solution?
 
 Provide the developer-facing plan. Include phases, code areas, data model or API changes, migration details, observability, cleanup work, and edge cases as needed. This section can be in-depth because it is not the leader path.
 
+Sub sections can help prevent walls of text.
+
+### Docs
+
+Answer: What docs updates and/or additions are necessary?
+
 ### Testing
 
-Answer: How will we test the implementation?
+Answer: What are non-obvious things we need to test?
 
-Document the critical behaviors that need testing. Tests must be valuable; do not test for the sake of testing.
+This should not be exhaustive of everything we need to test. Implementing engineers should be autonomous enough to figure that out. However, this section should mention subtle/non-obvious things that need testing.
 
 ### Alternatives
 
@@ -140,7 +153,7 @@ When reviewing a spec, check first whether the audience split is working. If lea
 
 Use tables sparingly. Putting too much content in them hurts readability when reading the raw markdown file.
 
-Do not use Title Case in headings.
+Use Sentence case. Do not use Title Case in headings.
 
 Subheadings are OK. For example, putting `## Testing` within `# Implementation` is OK. In fact, subheadings can be a great way to break up walls of text. 
 
